@@ -10,7 +10,7 @@ const getUser = (id: string) => {
     return users.find((fields:any) => fields.id === id);
 };
 
-const getUserIndex = (id: any) => {
+const getUserIndex = (id: string) => {
     return users.findIndex((fields:any) => fields.id === id);
 };
 
