@@ -15,8 +15,10 @@
 .form__group_center{
   text-align: center;
 }
-.form__group + .form__group{
-  margin-top: 20px;
+.form__group {
+  & + &{
+    margin-top: 20px;
+  }
 }
 .form__control{
   height: 38px;
@@ -28,24 +30,38 @@
   border: 1px solid #aaaaaa;
   transition: all 0.3s ease;
   outline: none;
-}
-.form__control:hover{
-  border-color: #555555;
-  color: #555555;
-}
-.form__control:focus{
-  border-color: blue;
-  color: #000000;
-}
-.form__control::placeholder {
-  color: #aaaaaa;
-  transition: all 0.3s ease;
-}
-.form__control:hover::placeholder {
-  color: #555555;
-}
-.form__control:focus::placeholder {
-  color: transparent;
+
+  &:hover {
+    border-color: #555555;
+    color: #555555;
+  }
+  &:focus{
+    border-color: blue;
+    color: #000000;
+  }
+  &::placeholder {
+    color: #aaaaaa;
+    transition: all 0.3s ease;
+  }
+  &:hover::placeholder {
+    color: #555555;
+  }
+  &:focus::placeholder {
+    color: transparent;
+  }
+  &.ng-dirty{
+    &.ng-valid{
+      border-color: green;
+      color: green;
+    }
+  }
+  &.ng-pending{
+    border-color: #dcdc10;
+  }
+  &.ng-touched.ng-invalid,
+  &.ng-dirty.ng-invalid{
+    border-color: rgba(255, 0, 0, 0.5);
+  }
 }
 .form__control_submit{
   background: #aaaaaa;
@@ -54,26 +70,16 @@
   border-color: #aaaaaa;
   width: 100%;
   box-sizing: border-box;
-}
-.form__control_submit:disabled{
-  background: #eeeeee;
-  color: #888888;
-  border-color: #eeeeee;
-}
-.form__control_submit:not(:disabled):hover{
-  cursor: pointer;
-  background: transparent;
-}
-.form__control.ng-dirty.ng-valid{
-  border-color: green;
-  color: green;
-}
-.form__control.ng-pending{
-  border-color: #dcdc10;
-}
-.form__control.ng-touched.ng-invalid,
-.form__control.ng-dirty.ng-invalid{
-  border-color: rgba(255, 0, 0, 0.5);
+
+  &:disabled{
+    background: #eeeeee;
+    color: #888888;
+    border-color: #eeeeee;
+  }
+  &:not(:disabled):hover{
+    cursor: pointer;
+    background: transparent;
+  }
 }
 .form__control-errors{
   background: rgba(255, 0, 0, 0.5);
@@ -91,6 +97,8 @@
 .form__data-row{
   padding: 5px 10px;
 }
-.form__data-row:nth-child(even){
-  background: #eeeeee;
+.form__data-row{
+  &:nth-child(even){
+    background: #eeeeee;
+  }
 }
