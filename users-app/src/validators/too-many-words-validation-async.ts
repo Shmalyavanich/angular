@@ -5,6 +5,8 @@ import {Observable} from "rxjs/internal/Observable";
 
 const delayTime = 3000;
 const maxNumberOfWords = 2;
+const wordsSeparator = ' ';
+
 
 export const tooManyWordsValidate = () => (
   ctrl: AbstractControl
@@ -17,8 +19,7 @@ export const tooManyWordsValidate = () => (
 
 const tooManyWordsTaken = (name: string): Observable<boolean> => {
   const nameTrimed = name.trim();
-  const nameParts = nameTrimed.split(' ');
-
+  const nameParts = nameTrimed.split(wordsSeparator);
   const isTaken = nameParts.length > maxNumberOfWords;
 
   return of(isTaken).pipe(delay(delayTime));

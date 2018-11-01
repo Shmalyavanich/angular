@@ -10,7 +10,7 @@
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="name" type="text" value="" placeholder="name*">
+      <input class="form__control" formControlName="name" type="text" value="" placeholder="Name*">
 
       <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)"
            class="form__control-errors">
@@ -51,7 +51,7 @@
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="age" type="text" value="" placeholder="age*">
+      <input class="form__control" formControlName="age" type="text" value="" placeholder="Age*">
 
       <div *ngIf="form.get('age').invalid && (form.get('age').dirty || form.get('age').touched)"
            class="form__control-errors">
@@ -76,7 +76,7 @@
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="birthdayDate" type="text" value="" placeholder="birthday*">
+      <input class="form__control" formControlName="birthdayDate" type="text" value="" placeholder="Birthday*">
 
       <div *ngIf="form.get('birthdayDate').invalid && (form.get('birthdayDate').dirty || form.get('birthdayDate').touched)"
            class="form__control-errors">
@@ -93,7 +93,7 @@
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="loginDate" type="text" value="" placeholder="date of login*">
+      <input class="form__control" formControlName="loginDate" type="text" value="" placeholder="Date of login*">
 
       <div *ngIf="form.get('loginDate').invalid && (form.get('loginDate').dirty || form.get('loginDate').touched)"
            class="form__control-errors">
@@ -110,7 +110,7 @@
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="notificationDate" type="text" value="" placeholder="date of notification*">
+      <input class="form__control" formControlName="notificationDate" type="text" value="" placeholder="Date of notification*">
 
       <div *ngIf="form.get('notificationDate').invalid && (form.get('notificationDate').dirty || form.get('notificationDate').touched)"
            class="form__control-errors">
@@ -127,7 +127,7 @@
     </div>
 
     <div class="form__group form__group_center">
-      <input class="form__control form__control_submit" name="submit" type="submit" value="submit" [disabled]="!userForm.valid">
+      <input class="form__control form__control_submit" name="submit" type="submit" value="Submit" [disabled]="!userForm.valid">
     </div>
 
     <div *ngIf="userForm.submitted" class="form__data">

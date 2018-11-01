@@ -8,7 +8,6 @@ const delayTime = 3000;
 const spaceSymbol = ' ';
 const minUpperCaseCharCode = 65;
 const maxUpperCaseCharCode = 90;
-const spaceCode = 32;
 
 
 export const pascalCaseValidate = () => (
@@ -22,7 +21,6 @@ export const pascalCaseValidate = () => (
 
 const pascalCaseTaken = (name: string): Observable<boolean> => {
   const nameTrimed = name.trim();
-  let isTaken: boolean = false;
 
   for (let i:number = 1; i < nameTrimed.length; i++) {
     const nameSymbol = nameTrimed.charAt(i);
@@ -33,10 +31,10 @@ const pascalCaseTaken = (name: string): Observable<boolean> => {
       (nameSymbol !== spaceSymbol) &&
       (prevNameSymbol !== spaceSymbol)
     ) {
-      isTaken = true;
+      return of(true).pipe(delay(delayTime));
     }
   }
 
-  return of(isTaken).pipe(delay(delayTime));
+  return of(false).pipe(delay(delayTime));
 
 }
