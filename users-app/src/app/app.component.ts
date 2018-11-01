@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {FormGroup, FormBuilder, Validators, ValidatorFn, AsyncValidatorFn} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {
   severalSpacesValidate,
   tooManyWordsValidate,
@@ -14,7 +14,7 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   readonly nameMinLength:number = 2;
   readonly nameMaxLength:number = 256;
