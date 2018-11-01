@@ -1,13 +1,17 @@
 {
-  "name": "my-app",
+  "name": "users-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && yarn copy-app-files && yarn server-build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start-server": "node dist/server/app.js",
+    "server-build": "tsc && yarn copy-server-files",
+    "copy-server-files" : "copyfiles server/users.json dist",
+    "copy-app-files" : "copyfiles package.json README.md dist"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +47,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~2.9.2"
+    "typescript": "~2.9.2",
+    "copyfiles": "2.1.0"
   }
 }
