@@ -19,12 +19,12 @@
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="age" type="text" value="" placeholder="Password">
+      <input class="form__control" formControlName="password" type="text" value="" placeholder="Password">
 
-      <div *ngIf="form.get('age').invalid && (form.get('age').dirty || form.get('age').touched)"
+      <div *ngIf="form.get('password').invalid && (form.get('password').dirty || form.get('password').touched)"
            class="form__control-errors">
 
-        <div *ngIf="form.get('age').hasError('required')">
+        <div *ngIf="form.get('password').hasError('required')">
           Password is required.
         </div>
 
@@ -42,6 +42,10 @@
       <div class="form__data-row">Birthday: {{formData['birthdayDate']}}</div>
       <div class="form__data-row">Date of login: {{formData['loginDate']}}</div>
       <div class="form__data-row">Date of notification: {{formData['notificationDate']}}</div>
+    </div>
+
+    <div class="form__group">
+      <a href="/forgot-password">Forgot password?</a>
     </div>
 
   </form>
