@@ -1,0 +1,54 @@
+<div class="container">
+  <form #loginForm="ngForm" [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+
+    <h1 class="form__title">
+      Sign in
+    </h1>
+
+    <div class="form__group">
+      <input class="form__control" formControlName="name" type="text" value="" placeholder="Login">
+
+      <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)"
+           class="form__control-errors">
+
+        <div *ngIf="form.get('name').hasError('required')">
+          Login is required.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form__group">
+      <input class="form__control" formControlName="password" type="text" value="" placeholder="Password">
+
+      <div *ngIf="form.get('password').invalid && (form.get('password').dirty || form.get('password').touched)"
+           class="form__control-errors">
+
+        <div *ngIf="form.get('password').hasError('required')">
+          Password is required.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form__group form__group_center">
+      <input class="form__control form__control_submit" name="submit" type="submit" value="Sign In" [disabled]="!userForm.valid">
+    </div>
+
+    <div *ngIf="loginForm.submitted" class="form__data">
+      <div class="form__data-title">User Data</div>
+      <div class="form__data-row">Name: {{formData['name']}}</div>
+      <div class="form__data-row">Age: {{formData['age']}}</div>
+      <div class="form__data-row">Birthday: {{formData['birthdayDate']}}</div>
+      <div class="form__data-row">Date of login: {{formData['loginDate']}}</div>
+      <div class="form__data-row">Date of notification: {{formData['notificationDate']}}</div>
+    </div>
+
+    <div class="form__group">
+      <a href="/forgot-password">Forgot password?</a>
+    </div>
+
+  </form>
+</div>
+
+<router-outlet></router-outlet>

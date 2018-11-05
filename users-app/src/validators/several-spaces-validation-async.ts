@@ -4,6 +4,7 @@ import {of} from "rxjs/internal/observable/of";
 import {Observable} from "rxjs/internal/Observable";
 
 const delayTime = 3000;
+const searchSymbols = '  ';
 
 export const severalSpacesValidate = () => (
   ctrl: AbstractControl
@@ -16,12 +17,11 @@ export const severalSpacesValidate = () => (
 
 const severalSpacesTaken = (name: string): Observable<boolean> => {
   const nameTrimed = name.trim();
-  let isTaken: boolean = false;
 
-  if(nameTrimed.indexOf('  ') !== -1){
-    isTaken = true;
+  if(nameTrimed.indexOf(searchSymbols) !== -1){
+    return of(true).pipe(delay(delayTime));
   }
 
-  return of(isTaken).pipe(delay(delayTime));
+  return of(false).pipe(delay(delayTime));
 
 }

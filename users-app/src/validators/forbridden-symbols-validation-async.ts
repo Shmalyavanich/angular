@@ -2,6 +2,7 @@ import {AbstractControl, ValidationErrors} from '@angular/forms';
 import {catchError, delay, map} from 'rxjs/operators';
 import {of} from "rxjs/internal/observable/of";
 import {Observable} from "rxjs/internal/Observable";
+import {checkCharForUnicodeTable} from "../shared/check-in-unicode";
 
 
 const delayTime = 3000;
@@ -36,36 +37,19 @@ const checkForForbiddenSymbols = (
   maxCharCode: number,
   minUpperCaseCharCode: number,
   maxUpperCaseCharCode: number,
-  additionalCharCode: number
+  spaceCode: number
 ): boolean => {
-  let result = false;
 
   for (let i = 0; i < str.length; i++) {
-    let charIsCorrect = false;
-
-    for (let j = minCharCode; j <= maxCharCode; j++) {
-      if(str.charCodeAt(i) == j){
-        charIsCorrect = true;
-      }
-    }
+    const charIsCorrect = checkCharForUnicodeTable(str[i], minCharCode, maxCharCode)
+                          || checkCharForUnicodeTable(str[i], minUpperCaseCharCode, maxUpperCaseCharCode)
+                          || checkCharForUnicodeTable(str[i], spaceCode, spaceCode);
 
     if (!charIsCorrect){
-      for (let j = minUpperCaseCharCode; j <= maxUpperCaseCharCode; j++) {
-        if(str.charCodeAt(i) == j){
-          charIsCorrect = true;
-        }
-      }
-    }
-
-    if (!charIsCorrect && str.charCodeAt(i) == additionalCharCode){
-      charIsCorrect = true;
-    }
-
-    if (!charIsCorrect){
-      result = true;
-      break;
+      return true;
     }
   }
 
-  return result;
+  return false;
 }
+
