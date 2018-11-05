@@ -1,0 +1,145 @@
+<div class="container">
+  <form #userForm="ngForm" [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+
+    <h1 class="form__title">
+      Profile form
+    </h1>
+
+    <div class="form__description">
+      All fields marked * are required.
+    </div>
+
+    <div class="form__group">
+      <input class="form__control" formControlName="name" type="text" value="" placeholder="Name*">
+
+      <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)"
+           class="form__control-errors">
+
+        <div *ngIf="form.get('name').hasError('required')">
+          Name is required.
+        </div>
+
+        <div *ngIf="form.get('name').hasError('minlength')">
+          Name must be at least 2 characters long.
+        </div>
+
+        <div *ngIf="form.get('name').hasError('maxlength')">
+          Name is too long.
+        </div>
+
+        <div *ngIf="form.get('name').hasError('tooManyWords')">
+
+          <div *ngIf="form.get('name').hasError('severalSpaces'); else tooManyWordsErrorBlock">
+            Only one space must be between words.
+          </div>
+
+          <ng-template #tooManyWordsErrorBlock>
+            Too many words.
+          </ng-template>
+
+        </div>
+
+        <div *ngIf="form.get('name').hasError('pascalCase')">
+          Words must be separated by a space.
+        </div>
+
+        <div *ngIf="form.get('name').hasError('forbiddenSymbols')">
+          Name must consist of only letters and space.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form__group">
+      <input class="form__control" formControlName="age" type="text" value="" placeholder="Age*">
+
+      <div *ngIf="form.get('age').invalid && (form.get('age').dirty || form.get('age').touched)"
+           class="form__control-errors">
+
+        <div *ngIf="form.get('age').hasError('required')">
+          Age is required.
+        </div>
+
+        <div *ngIf="form.get('age').hasError('min')">
+          Age must be at least 18.
+        </div>
+
+        <div *ngIf="form.get('age').hasError('max')">
+          Age must be no more than 65.
+        </div>
+
+        <div *ngIf="form.get('age').hasError('wrongAge')">
+          Age must be an integer and be between 18 and 65.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form__group">
+      <input class="form__control" formControlName="birthdayDate" type="text" value="" placeholder="Birthday*">
+
+      <div *ngIf="form.get('birthdayDate').invalid && (form.get('birthdayDate').dirty || form.get('birthdayDate').touched)"
+           class="form__control-errors">
+
+        <div *ngIf="form.get('birthdayDate').hasError('required')">
+          Birthday date is required.
+        </div>
+
+        <div *ngIf="form.get('birthdayDate').hasError('wrongDate')">
+          Date must be in YYYY/MM/DD or DD MMMM YYYY or DD-MMM-YY format.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form__group">
+      <input class="form__control" formControlName="loginDate" type="text" value="" placeholder="Date of login*">
+
+      <div *ngIf="form.get('loginDate').invalid && (form.get('loginDate').dirty || form.get('loginDate').touched)"
+           class="form__control-errors">
+
+        <div *ngIf="form.get('loginDate').hasError('required')">
+          Date of login is required.
+        </div>
+
+        <div *ngIf="form.get('loginDate').hasError('wrongDate')">
+          Date must be in YYYY/MM/DD or DD MMMM YYYY or DD-MMM-YY format.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form__group">
+      <input class="form__control" formControlName="notificationDate" type="text" value="" placeholder="Date of notification*">
+
+      <div *ngIf="form.get('notificationDate').invalid && (form.get('notificationDate').dirty || form.get('notificationDate').touched)"
+           class="form__control-errors">
+
+        <div *ngIf="form.get('notificationDate').hasError('required')">
+          Date of notification is required.
+        </div>
+
+        <div *ngIf="form.get('notificationDate').hasError('wrongDate')">
+          Date must be in YYYY/MM/DD or DD MMMM YYYY or DD-MMM-YY format.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form__group form__group_center">
+      <input class="form__control form__control_submit" name="submit" type="submit" value="Submit" [disabled]="!userForm.valid">
+    </div>
+
+    <div *ngIf="userForm.submitted" class="form__data">
+      <div class="form__data-title">User Data</div>
+      <div class="form__data-row">Name: {{formData['name']}}</div>
+      <div class="form__data-row">Age: {{formData['age']}}</div>
+      <div class="form__data-row">Birthday: {{formData['birthdayDate']}}</div>
+      <div class="form__data-row">Date of login: {{formData['loginDate']}}</div>
+      <div class="form__data-row">Date of notification: {{formData['notificationDate']}}</div>
+    </div>
+
+  </form>
+</div>
+
+<router-outlet></router-outlet>
