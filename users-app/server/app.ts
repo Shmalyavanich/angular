@@ -16,6 +16,12 @@ const getUserIndex = (id: string) => {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(function(req: object, res: any, next:any) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 app.get('/users', (req: object, res: any) => {
     res.json(users);
 });
