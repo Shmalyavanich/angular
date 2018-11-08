@@ -1,0 +1,80 @@
+<div class="main">
+  <div class="container">
+
+    <div class="tabs">
+      <div class="tabs__switcher">
+        <div routerLink="/profile" routerLinkActive="active" class="tabs__toggler">
+          {{ 'PROFILE.SHOW_TAB' | translate }}
+        </div>
+
+        <div routerLink="/edit-profile" routerLinkActive="active" class="tabs__toggler">
+          {{ 'PROFILE.EDIT_TAB' | translate }}
+        </div>
+      </div>
+
+      <div class="tabs__body">
+        <form
+          *ngFor="let user of user$ | async"
+          #editProfileForm="ngForm"
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()"
+          class="form tabs__content">
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">{{ 'PROFILE.NAME_LABEL' | translate }}</span>
+            <span class="tabs__content-value">
+              <input class="form__control" formControlName="name" type="text" value="{{user.name}}">
+            </span>
+          </div>
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">{{ 'PROFILE.PASSWORD_LABEL' | translate }}</span>
+            <span class="tabs__content-value">
+              <input class="form__control" formControlName="password" type="password" value="{{user.password}}">
+            </span>
+          </div>
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">{{ 'PROFILE.BIRTHDAY_LABEL' | translate }}</span>
+            <span class="tabs__content-value">
+              <input class="form__control" formControlName="date_of_birth" type="text" value="{{user.date_of_birth}}">
+            </span>
+          </div>
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">{{ 'PROFILE.FIRST_LOGIN_DATE_LABEL' | translate }}</span>
+            <span class="tabs__content-value">
+              <input class="form__control" formControlName="date_of_first_login" type="text"
+                     value="{{user.date_of_first_login}}">
+            </span>
+          </div>
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">Date of next notification: </span>
+            <span class="tabs__content-value">
+              <input class="form__control" formControlName="date_of_next_notification" type="text"
+                     value="{{user.date_of_next_notification}}">
+            </span>
+          </div>
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">{{ 'PROFILE.NEXT_NOTIFICATION_DATE_LABEL' | translate }}</span>
+            <span class="tabs__content-value">
+              <textarea class="form__control form__control_textarea" formControlName="information" type="text"
+                        value="{{user.information}}"></textarea>
+            </span>
+          </div>
+
+          <div class="tabs__buttons">
+            <input class="form__control form__control_submit" name="submit" type="submit"
+                   value="{{ 'PROFILE.SUBMIT_BTN' | translate }}">
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="!loaded" class="app-loading"></div>
+</div>

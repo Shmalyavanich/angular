@@ -1,0 +1,111 @@
+.main{
+  margin-top: 10px;
+  padding: 50px 0;
+  position: relative;
+  min-height: 380px;
+  box-sizing: border-box;
+}
+.tabs__switcher{
+  display: flex;
+  justify-content: start;
+}
+.tabs__toggler{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 45px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #cccccc;
+  transition: background-color 0.3s ease;
+
+  &:last-child{
+    border-right: 1px solid #cccccc;
+  }
+  &:hover,
+  &.active{
+    background-color: #e0e0e0;
+  }
+}
+.tabs__body{
+  padding: 30px;
+  border: 1px solid #cccccc;
+}
+.tabs__content-title{
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 10px;
+}
+.tabs__content-row{
+  padding: 8px 10px;
+  display: flex;
+  justify-content: start;
+
+  &:nth-child(odd){
+    background: #eeeeee;
+  }
+}
+.tabs__content-label,
+.tabs__content-value{
+  width: 50%;
+  line-height: 26px;
+}
+
+.form__control{
+  height: 26px;
+  line-height: 26px;
+  width: 100%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  color: #aaaaaa;
+  border: 1px solid #aaaaaa;
+  transition: all 0.3s ease;
+  outline: none;
+  width: 100%;
+
+  &.form__control_textarea{
+    height: 60px;
+    padding: 0 10px;
+  }
+  &:hover {
+    border-color: #555555;
+    color: #555555;
+  }
+  &:focus{
+    border-color: blue;
+    color: #000000;
+  }
+  &::placeholder {
+    color: #aaaaaa;
+    transition: all 0.3s ease;
+  }
+  &:hover::placeholder {
+    color: #555555;
+  }
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+.tabs__buttons{
+  text-align: center;
+  margin-top: 15px;
+}
+.form__control_submit{
+  background: #aaaaaa;
+  padding: 0 30px;
+  color: #555555;
+  border-color: #aaaaaa;
+  box-sizing: border-box;
+  width: auto;
+  cursor: pointer;
+  height: 36px;
+  line-height: 36px;
+
+  &:not(:disabled):hover{
+    background: transparent;
+    border-color: #aaaaaa;
+  }
+}
+

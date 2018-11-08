@@ -2,141 +2,147 @@
   <form #userForm="ngForm" [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
 
     <h1 class="form__title">
-      Profile form
+      {{ 'REACTIVE.FORM_TITLE' | translate }}
     </h1>
 
     <div class="form__description">
-      All fields marked * are required.
+      {{ 'REACTIVE.FORM_DESCRIPTION' | translate }}
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="name" type="text" value="" placeholder="Name*">
+      <input class="form__control" formControlName="name" type="text" value=""
+             placeholder="{{ 'REACTIVE.FORM_INPUT_NAME' | translate }}">
 
       <div *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)"
            class="form__control-errors">
 
         <div *ngIf="form.get('name').hasError('required')">
-          Name is required.
+          {{ 'REACTIVE.FORM_ERROR_NAME_IS_REQUIRED' | translate }}
         </div>
 
         <div *ngIf="form.get('name').hasError('minlength')">
-          Name must be at least 2 characters long.
+          {{ 'REACTIVE.FORM_ERROR_NAME_LEAST_TWO_CHARS' | translate }}
         </div>
 
         <div *ngIf="form.get('name').hasError('maxlength')">
-          Name is too long.
+          {{ 'REACTIVE.FORM_ERROR_NAME_TOO_LONG' | translate }}
         </div>
 
         <div *ngIf="form.get('name').hasError('tooManyWords')">
 
           <div *ngIf="form.get('name').hasError('severalSpaces'); else tooManyWordsErrorBlock">
-            Only one space must be between words.
+            {{ 'REACTIVE.FORM_ERROR_TOO_MANY_SPACES' | translate }}
           </div>
 
           <ng-template #tooManyWordsErrorBlock>
-            Too many words.
+            {{ 'REACTIVE.FORM_ERROR_TOO_MANY_WORDS' | translate }}
           </ng-template>
 
         </div>
 
         <div *ngIf="form.get('name').hasError('pascalCase')">
-          Words must be separated by a space.
+          {{ 'REACTIVE.FORM_ERROR_NOT_SPACE_SEPARATE' | translate }}
         </div>
 
         <div *ngIf="form.get('name').hasError('forbiddenSymbols')">
-          Name must consist of only letters and space.
+          {{ 'REACTIVE.FORM_ERROR_NAME_CONSIST_FORBIDDEN_SYMBOLS' | translate }}
         </div>
 
       </div>
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="age" type="text" value="" placeholder="Age*">
+      <input class="form__control" formControlName="age" type="text" value=""
+             placeholder="{{ 'REACTIVE.FORM_INPUT_AGE' | translate }}">
 
       <div *ngIf="form.get('age').invalid && (form.get('age').dirty || form.get('age').touched)"
            class="form__control-errors">
 
         <div *ngIf="form.get('age').hasError('required')">
-          Age is required.
+          {{ 'REACTIVE.FORM_ERROR_AGE_IS_REQUIRED' | translate }}
         </div>
 
         <div *ngIf="form.get('age').hasError('min')">
-          Age must be at least 18.
+          {{ 'REACTIVE.FORM_ERROR_AGE_TOO_LEAST' | translate }}
         </div>
 
         <div *ngIf="form.get('age').hasError('max')">
-          Age must be no more than 65.
+          {{ 'REACTIVE.FORM_ERROR_AGE_TOO_BIG' | translate }}
         </div>
 
         <div *ngIf="form.get('age').hasError('wrongAge')">
-          Age must be an integer and be between 18 and 65.
+          {{ 'REACTIVE.FORM_ERROR_AGE_NOT_INTEGER' | translate }}
         </div>
 
       </div>
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="birthdayDate" type="text" value="" placeholder="Birthday*">
+      <input class="form__control" formControlName="birthdayDate" type="text" value=""
+             placeholder="{{ 'REACTIVE.FORM_INPUT_BIRTHDAY' | translate }}">
 
       <div *ngIf="form.get('birthdayDate').invalid && (form.get('birthdayDate').dirty || form.get('birthdayDate').touched)"
            class="form__control-errors">
 
         <div *ngIf="form.get('birthdayDate').hasError('required')">
-          Birthday date is required.
+          {{ 'REACTIVE.FORM_ERROR_BIRTHDAY_IS_REQUIRED' | translate }}
         </div>
 
         <div *ngIf="form.get('birthdayDate').hasError('wrongDate')">
-          Date must be in YYYY/MM/DD or DD MMMM YYYY or DD-MMM-YY format.
+          {{ 'REACTIVE.FORM_ERROR_DATE_INVALID_FORMAT' | translate }}
         </div>
 
       </div>
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="loginDate" type="text" value="" placeholder="Date of login*">
+      <input class="form__control" formControlName="loginDate" type="text" value=""
+             placeholder="{{ 'REACTIVE.FORM_INPUT_FIRST_LOGIN_DATE' | translate }}">
 
       <div *ngIf="form.get('loginDate').invalid && (form.get('loginDate').dirty || form.get('loginDate').touched)"
            class="form__control-errors">
 
         <div *ngIf="form.get('loginDate').hasError('required')">
-          Date of login is required.
+          {{ 'REACTIVE.FORM_ERROR_LOGIN_DATE_IS_REQUIRED' | translate }}
         </div>
 
         <div *ngIf="form.get('loginDate').hasError('wrongDate')">
-          Date must be in YYYY/MM/DD or DD MMMM YYYY or DD-MMM-YY format.
+          {{ 'REACTIVE.FORM_ERROR_DATE_INVALID_FORMAT' | translate }}
         </div>
 
       </div>
     </div>
 
     <div class="form__group">
-      <input class="form__control" formControlName="notificationDate" type="text" value="" placeholder="Date of notification*">
+      <input class="form__control" formControlName="notificationDate" type="text" value=""
+             placeholder="{{ 'REACTIVE.FORM_INPUT_NEXT_NOTIFICATION_DATE' | translate }}">
 
       <div *ngIf="form.get('notificationDate').invalid && (form.get('notificationDate').dirty || form.get('notificationDate').touched)"
            class="form__control-errors">
 
         <div *ngIf="form.get('notificationDate').hasError('required')">
-          Date of notification is required.
+          {{ 'REACTIVE.FORM_ERROR_NOTIFICATION_DATE_IS_REQUIRED' | translate }}
         </div>
 
         <div *ngIf="form.get('notificationDate').hasError('wrongDate')">
-          Date must be in YYYY/MM/DD or DD MMMM YYYY or DD-MMM-YY format.
+          {{ 'REACTIVE.FORM_ERROR_DATE_INVALID_FORMAT' | translate }}
         </div>
 
       </div>
     </div>
 
     <div class="form__group form__group_center">
-      <input class="form__control form__control_submit" name="submit" type="submit" value="Submit" [disabled]="!userForm.valid">
+      <input class="form__control form__control_submit" name="submit" type="submit"
+             value="{{ 'REACTIVE.FORM_INPUT_BTN' | translate }}" [disabled]="!userForm.valid">
     </div>
 
     <div *ngIf="userForm.submitted" class="form__data">
-      <div class="form__data-title">User Data</div>
-      <div class="form__data-row">Name: {{formData['name']}}</div>
-      <div class="form__data-row">Age: {{formData['age']}}</div>
-      <div class="form__data-row">Birthday: {{formData['birthdayDate']}}</div>
-      <div class="form__data-row">Date of login: {{formData['loginDate']}}</div>
-      <div class="form__data-row">Date of notification: {{formData['notificationDate']}}</div>
+      <div class="form__data-title">{{ 'REACTIVE.RESULTS_TITLE' | translate }}</div>
+      <div class="form__data-row">{{ 'REACTIVE.NAME_LABEL' | translate }} {{formData['name']}}</div>
+      <div class="form__data-row">{{ 'REACTIVE.PASSWORD_LABEL' | translate }} {{formData['age']}}</div>
+      <div class="form__data-row">{{ 'REACTIVE.BIRTHDAY_LABEL' | translate }} {{formData['birthdayDate']}}</div>
+      <div class="form__data-row">{{ 'REACTIVE.FIRST_LOGIN_DATE_LABEL' | translate }} {{formData['loginDate']}}</div>
+      <div class="form__data-row">{{ 'REACTIVE.NEXT_NOTIFICATION_DATE_LABEL' | translate }} {{formData['notificationDate']}}</div>
     </div>
 
   </form>

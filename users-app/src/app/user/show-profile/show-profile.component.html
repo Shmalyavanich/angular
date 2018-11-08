@@ -1,0 +1,52 @@
+<div class="main">
+  <div class="container">
+
+    <div class="tabs">
+      <div class="tabs__switcher">
+        <div routerLink="/profile" routerLinkActive="active" class="tabs__toggler">
+          {{ 'PROFILE.SHOW_TAB' | translate }}
+        </div>
+
+        <div routerLink="/edit-profile" routerLinkActive="active" class="tabs__toggler">
+          {{ 'PROFILE.EDIT_TAB' | translate }}
+        </div>
+      </div>
+
+      <div class="tabs__body">
+        <div *ngFor="let user of user$ | async" class="tabs__content">
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">{{ 'PROFILE.NAME_LABEL' | translate }}</span>
+            <span class="tabs__content-value">{{user.name}}</span>
+          </div>
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">{{ 'PROFILE.BIRTHDAY_LABEL' | translate }}</span>
+            <span class="tabs__content-value">{{user.date_of_birth}}</span>
+          </div>
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">{{ 'PROFILE.FIRST_LOGIN_DATE_LABEL' | translate }}</span>
+            <span class="tabs__content-value">{{user.date_of_first_login}}</span>
+          </div>
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">{{ 'PROFILE.NEXT_NOTIFICATION_DATE_LABEL' | translate }}</span>
+            <span class="tabs__content-value">{{user.date_of_next_notification}}</span>
+          </div>
+
+          <div class="tabs__content-row">
+            <span class="tabs__content-label">{{ 'PROFILE.INFORMATION_LABEL' | translate }}</span>
+            <span class="tabs__content-value">{{user.information}}</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div *ngIf="!loaded" class="app-loading"></div>
+</div>
+
+
+

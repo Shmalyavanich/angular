@@ -7,7 +7,7 @@ import {
   forbiddenSymbolsValidate,
   ageValidate,
   dateValidate
-} from '../../validators/';
+} from '../validators/';
 
 @Component({
   selector: 'app-reactive-forms',

@@ -1,6 +1,7 @@
 .header{
   background: white;
   padding: 20px;
+  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
 }
 .header__holder{
   display: flex;
@@ -25,15 +26,25 @@
 .header__languages,
 .header__auth{
   display: inline-block;
-  padding: 0 10px;
+}
+.header__languages{
+  margin-right: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 .header__lang{
+  margin: 0 10px;
   font-size: 0;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  display: flex;
+  transition: color 0.3s ease;
 
+  &.active,
+  &:hover{
+    color: #4C89F2;
+  }
   &::before{
     content: "";
     display: inline-block;
@@ -57,5 +68,9 @@
   line-height: 13px;
   font-weight: bold;
   vertical-align: bottom;
+  text-transform: uppercase;
 }
-
+.header__greeting{
+  margin-bottom: 10px;
+  text-align: center;
+}

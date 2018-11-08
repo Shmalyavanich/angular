@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {
-  ageValidate,
-  dateValidate,
-  forbiddenSymbolsValidate,
-  pascalCaseValidate,
-  severalSpacesValidate,
-  tooManyWordsValidate
-} from "../../../validators";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { Observable} from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { UsersService } from '../../services/users.service';
+
 
 @Component({
   selector: 'app-login',
@@ -16,8 +12,10 @@ import {
 })
 export class LoginComponent implements OnInit {
 
-  formData : object;
+  loaded = true;
   form: FormGroup;
+  userAuth$: Observable<boolean>;
+
 
   ngOnInit(): void {
     this.initForm();
@@ -25,20 +23,24 @@ export class LoginComponent implements OnInit {
 
   initForm() {
     this.form = this.fb.group({
-      login: ['',
-        Validators.required,
-      ],
-      password: ['',
-        Validators.required,
-      ],
+      name: [''],
+      password: [''],
     });
   }
 
   onSubmit() {
-    this.formData = this.form.value;
-    this.form.reset();
+     this.authorization(this.form.value);
   }
 
-  constructor(private fb: FormBuilder) {}
+  authorization({name, password}){
+    this.loaded = false;
+    this.userAuth$ = this.usersService.userAuth(name, password).pipe(
+      tap(()=> this.loaded = true)
+    );
+  }
+
+  constructor(
+    private fb: FormBuilder,
+    private usersService: UsersService) {}
 
 }

@@ -1,3 +1,6 @@
+.login{
+  position: relative;
+}
 .form{
   border: 1px solid #ccc;
   width: 500px;
@@ -21,6 +24,9 @@
   & + &{
     margin-top: 20px;
   }
+}
+.form__buttons{
+  position: relative;
 }
 .form__control{
   height: 38px;
@@ -51,19 +57,6 @@
   &:focus::placeholder {
     color: transparent;
   }
-  &.ng-dirty{
-    &.ng-valid{
-      border-color: green;
-      color: green;
-    }
-  }
-  &.ng-pending{
-    border-color: #dcdc10;
-  }
-  &.ng-touched.ng-invalid,
-  &.ng-dirty.ng-invalid{
-    border-color: rgba(255, 0, 0, 0.5);
-  }
 }
 .form__control_submit{
   background: #aaaaaa;
@@ -82,11 +75,14 @@
     cursor: pointer;
     background: transparent;
   }
+  &:focus{
+    border-color: #aaaaaa;
+  }
 }
-.form__control-errors{
+.form__erorrs{
   background: rgba(255, 0, 0, 0.5);
   color: #ffffff;
-  padding: 8px 15px;
+  padding: 10px 15px;
 }
 .form__data{
   padding-top: 30px;
@@ -102,5 +98,21 @@
 .form__data-row{
   &:nth-child(even){
     background: #eeeeee;
+  }
+}
+.form__link{
+  color: #4C89F2;
+  text-decoration: none;
+  border-bottom: 1px solid #4C89F2;
+  transition: border-color 0.3s ease;
+
+  &:hover{
+    border-color: transparent;
+  }
+}
+.app-loading{
+  &::after {
+    width: 26px;
+    height: 26px;
   }
 }

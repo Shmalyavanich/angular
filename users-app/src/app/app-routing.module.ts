@@ -1,16 +1,46 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import {LoginComponent} from "./authorization/login/login.component";
-import {ForgotPasswordComponent} from "./authorization/forgot-password/forgot-password.component";
-import {ReactiveFormsComponent} from "./reactive-forms/reactive-forms.component";
+import { ReactiveFormsComponent } from "./reactive-forms/reactive-forms.component";
+import { LoginComponent } from "./authorization/login/login.component";
+import { ForgotPasswordComponent } from "./authorization/forgot-password/forgot-password.component";
+import { AuthorizationGuard } from './authorization/authorization.guard';
+import { AuthorizedUserGuard } from './authorization/authorized-user.guard';
+import { ShowProfileComponent } from "./user/show-profile/show-profile.component";
+import { EditProfileComponent } from "./user/edit-profile/edit-profile.component";
 
 
 const routes: Routes = [
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'reactive', component: ReactiveFormsComponent }
+  {
+    path: '',
+    redirectTo: '/profile',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate:[AuthorizedUserGuard]
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
+    canActivate:[AuthorizedUserGuard]
+  },
+  {
+    path: 'reactive',
+    component: ReactiveFormsComponent,
+    canActivate:[AuthorizationGuard]
+  },
+  {
+    path: 'profile',
+    component: ShowProfileComponent,
+    canActivate:[AuthorizationGuard]
+  },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent,
+    canActivate:[AuthorizationGuard]
+  }
 ];
 
 @NgModule({
