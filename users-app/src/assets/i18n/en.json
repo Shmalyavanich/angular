@@ -1,0 +1,67 @@
+{
+  "COMMON": {
+    "SITE_TITLE": "UsersApp"
+  },
+  "HEADER": {
+    "SIGN_IN_BTN": "Sign In",
+    "LOGOUT_BTN": "Logout"
+  },
+  "LOGIN": {
+    "FORM_TITLE": "Sign In",
+    "FORM_INPUT_NAME": "Name",
+    "FORM_INPUT_PASSWORD": "Password",
+    "FORM_INPUT_BTN": "Sign In",
+    "FORM_ERROR_WRONG_NAME_OR_PASSWORD": "Wrong login or password.",
+    "FORM_LINK_FORGOT_PASSWORD": "Forgot password?"
+  },
+  "FORGOT_PASSWORD": {
+    "FORM_TITLE": "Password recovery",
+    "FORM_INPUT_NAME": "Name",
+    "FORM_INPUT_PASSWORD": "New password",
+    "FORM_INPUT_BTN": "Change password",
+    "FORM_ERROR_WRONG_USER_NAME": "User with the same name does not exist",
+    "FORM_LINK_SIGN_IN": "Sign In"
+  },
+  "PROFILE": {
+    "SHOW_TAB": "User profile",
+    "EDIT_TAB": "Edit profile",
+    "NAME_LABEL": "Name:",
+    "PASSWORD_LABEL": "Password:",
+    "BIRTHDAY_LABEL": "Birthday:",
+    "FIRST_LOGIN_DATE_LABEL": "Date of first login:",
+    "NEXT_NOTIFICATION_DATE_LABEL": "Date of next notification:",
+    "INFORMATION_LABEL": "Information:",
+    "SUBMIT_BTN": "Submit"
+  },
+  "REACTIVE": {
+    "FORM_TITLE": "Profile form",
+    "FORM_DESCRIPTION": "All fields marked * are required.",
+    "FORM_INPUT_NAME": "Name*",
+    "FORM_INPUT_AGE": "Age*",
+    "FORM_INPUT_BIRTHDAY": "Birthday*",
+    "FORM_INPUT_FIRST_LOGIN_DATE": "Date of first login*",
+    "FORM_INPUT_NEXT_NOTIFICATION_DATE": "Date of next notification*",
+    "FORM_INPUT_BTN": "Submit",
+    "FORM_ERROR_NAME_IS_REQUIRED": "Name is required.",
+    "FORM_ERROR_NAME_LEAST_TWO_CHARS": "Name must be at least 2 characters long.",
+    "FORM_ERROR_NAME_TOO_LONG": "Name is too long.",
+    "FORM_ERROR_TOO_MANY_SPACES": "Only one space must be between words.",
+    "FORM_ERROR_TOO_MANY_WORDS": "Too many words.",
+    "FORM_ERROR_NOT_SPACE_SEPARATE": "Words must be separated by a space.",
+    "FORM_ERROR_NAME_CONSIST_FORBIDDEN_SYMBOLS": "Name must consist of only letters and space.",
+    "FORM_ERROR_AGE_IS_REQUIRED": "Age is required.",
+    "FORM_ERROR_AGE_TOO_LEAST": "Age must be at least 18.",
+    "FORM_ERROR_AGE_TOO_BIG": "Age must be no more than 65.",
+    "FORM_ERROR_AGE_NOT_INTEGER": "Age must be an integer and be between 18 and 65.",
+    "FORM_ERROR_BIRTHDAY_IS_REQUIRED": "Birthday date is required.",
+    "FORM_ERROR_DATE_INVALID_FORMAT": "Date must be in YYYY/MM/DD or DD MMMM YYYY or DD-MMM-YY format.",
+    "FORM_ERROR_LOGIN_DATE_IS_REQUIRED": "Date of login is required.",
+    "FORM_ERROR_NOTIFICATION_DATE_IS_REQUIRED": "Date of notification is required.",
+    "RESULTS_TITLE": "User Data:",
+    "NAME_LABEL": "Name:",
+    "PASSWORD_LABEL": "Password:",
+    "BIRTHDAY_LABEL": "Birthday:",
+    "FIRST_LOGIN_DATE_LABEL": "Date of first login:",
+    "NEXT_NOTIFICATION_DATE_LABEL": "Date of next notification:"
+  }
+}

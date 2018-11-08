@@ -29,14 +29,22 @@
 }
 .header__languages{
   margin-right: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 .header__lang{
+  margin: 0 10px;
   font-size: 0;
-  display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  display: flex;
+  transition: color 0.3s ease;
 
+  &.active,
+  &:hover{
+    color: #4C89F2;
+  }
   &::before{
     content: "";
     display: inline-block;
@@ -60,38 +68,9 @@
   line-height: 13px;
   font-weight: bold;
   vertical-align: bottom;
+  text-transform: uppercase;
 }
-
-.app-loading{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &::after{
-    content: "";
-    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDUzMy4zMzMgNTMzLjMzMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTMzLjMzMyA1MzMuMzMzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTI2Ni42NjcsMEMxMjEuNDg1LDAsMy40MDcsMTE2LjAyMiwwLjA3OSwyNjAuNDAzQzMuMTYzLDEzNC40MzMsOTguOTUsMzMuMzMzLDIxNi42NjcsMzMuMzMzICAgYzExOS42NjEsMCwyMTYuNjY3LDEwNC40NjcsMjE2LjY2NywyMzMuMzMzYzAsMjcuNjE0LDIyLjM4Niw1MCw1MCw1MHM1MC0yMi4zODYsNTAtNTBDNTMzLjMzMywxMTkuMzkxLDQxMy45NDIsMCwyNjYuNjY3LDB6ICAgIE0yNjYuNjY3LDUzMy4zMzNjMTQ1LjE4MiwwLDI2My4yNTktMTE2LjAyMSwyNjYuNTg3LTI2MC40MDJDNTMwLjE3LDM5OC45MDEsNDM0LjM4Myw1MDAsMzE2LjY2Nyw1MDAgICBDMTk3LjAwNSw1MDAsMTAwLDM5NS41MzMsMTAwLDI2Ni42NjdjMC0yNy42MTUtMjIuMzg2LTUwLTUwLTUwcy01MCwyMi4zODYtNTAsNTBDMCw0MTMuOTQyLDExOS4zOTEsNTMzLjMzMywyNjYuNjY3LDUzMy4zMzN6IiBmaWxsPSIjNGM4OWYyIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
-    width: 46px;
-    height: 46px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    animation-name: spin;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header__greeting{
+  margin-bottom: 10px;
+  text-align: center;
 }

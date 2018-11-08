@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Load, UsersService} from "./services/users.service";
-import {Observable} from "rxjs/internal/Observable";
-import {tap} from "rxjs/operators";
-import {of} from "rxjs/internal/observable/of";
+import { Observable } from "rxjs/internal/Observable";
+import {TranslateService} from '@ngx-translate/core';
+
+import { UsersService } from "./services/users.service";
 
 
 @Component({
@@ -13,19 +13,31 @@ import {of} from "rxjs/internal/observable/of";
 export class AppComponent implements OnInit{
 
   loaded$: Observable<boolean>;
+  authorized: boolean;
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.getAppDelay();
-    console.log(this.usersService.getcookies());
   }
 
   getAppDelay(){
-    //if(this.usersService.getAuthState() != 'true') {
+    this.authorized = this.usersService.getAuthState();
+    if(!this.authorized) {
       this.loaded$ = this.usersService.getAppDelay();
-    //}
+    }
   }
 
+  userLogout(){
+    this.usersService.userLogout();
+  }
 
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    public translate: TranslateService) {
+    translate.addLangs(['en', 'ru']);
+    translate.setDefaultLang('en');
+
+    const browserLang = translate.getBrowserLang();
+    translate.use('en');
+  }
 
 }

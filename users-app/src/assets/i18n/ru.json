@@ -1,0 +1,67 @@
+{
+  "COMMON": {
+    "SITE_TITLE": "UsersApp"
+  },
+  "HEADER": {
+    "SIGN_IN_BTN": "Войти",
+    "LOGOUT_BTN": "Выйти"
+  },
+  "LOGIN": {
+    "FORM_TITLE": "Вход",
+    "FORM_INPUT_NAME": "Имя",
+    "FORM_INPUT_PASSWORD": "Пароль",
+    "FORM_INPUT_BTN": "Войти",
+    "FORM_ERROR_WRONG_NAME_OR_PASSWORD": "Неверное имя пользователя или пароль",
+    "FORM_LINK_FORGOT_PASSWORD": "Забыли пароль?"
+  },
+  "FORGOT_PASSWORD": {
+    "FORM_TITLE": "Восстановление пароля",
+    "FORM_INPUT_NAME": "Имя",
+    "FORM_INPUT_PASSWORD": "Новый пароль",
+    "FORM_INPUT_BTN": "Изменить пароль",
+    "FORM_ERROR_WRONG_USER_NAME": "Такой пользователь не существует",
+    "FORM_LINK_SIGN_IN": "Войти"
+  },
+  "PROFILE": {
+    "SHOW_TAB": "Профиль пользователя",
+    "EDIT_TAB": "Редактировать профиль",
+    "NAME_LABEL": "Имя:",
+    "PASSWORD_LABEL": "Пароль:",
+    "BIRTHDAY_LABEL": "Дата рождения:",
+    "FIRST_LOGIN_DATE_LABEL": "Дата последнего входа:",
+    "NEXT_NOTIFICATION_DATE_LABEL": "Дата следующего уведомления:",
+    "INFORMATION_LABEL": "Информация:",
+    "SUBMIT_BTN": "Отправить"
+  },
+    "REACTIVE": {
+    "FORM_TITLE": "Профиль",
+    "FORM_DESCRIPTION": "Все поля отмеченные * обязательны для заполнения",
+    "FORM_INPUT_NAME": "Имя*",
+    "FORM_INPUT_AGE": "Возраст*",
+    "FORM_INPUT_BIRTHDAY": "Дата рождения*",
+    "FORM_INPUT_FIRST_LOGIN_DATE": "Дата последнего входа*",
+    "FORM_INPUT_NEXT_NOTIFICATION_DATE": "Дата следующего уведомления*",
+    "FORM_INPUT_BTN": "Отправить",
+    "FORM_ERROR_NAME_IS_REQUIRED": "Имя обязательно для заполнения.",
+    "FORM_ERROR_NAME_LEAST_TWO_CHARS": "Имя должно быть не меньше двух символов.",
+    "FORM_ERROR_NAME_TOO_LONG": "Имя слишком длинное.",
+    "FORM_ERROR_TOO_MANY_SPACES": "Между словами должен быть только один знак пробела.",
+    "FORM_ERROR_TOO_MANY_WORDS": "Слишком много слов.",
+    "FORM_ERROR_NOT_SPACE_SEPARATE": "Слова должны разделяться пробелом.",
+    "FORM_ERROR_NAME_CONSIST_FORBIDDEN_SYMBOLS": "Имя должно состоять только из букв и знака пробела.",
+    "FORM_ERROR_AGE_IS_REQUIRED": "Возраст обязателен для заполнения.",
+    "FORM_ERROR_AGE_TOO_LEAST": "Возраст должен быть не менее 18.",
+    "FORM_ERROR_AGE_TOO_BIG": "Возраст должен быть не более 65.",
+    "FORM_ERROR_AGE_NOT_INTEGER": "Возраст должен быть числов и находиться в промежутке от 18 до 65.",
+    "FORM_ERROR_BIRTHDAY_IS_REQUIRED": "Дата рождения обязательна для заполнения.",
+    "FORM_ERROR_DATE_INVALID_FORMAT": "Дата должна соответствовать одному из форматов: YYYY/MM/DD или DD MMMM YYYY или DD-MMM-YY",
+    "FORM_ERROR_LOGIN_DATE_IS_REQUIRED": "Дата последнего входа обязательна для заполнения.",
+    "FORM_ERROR_NOTIFICATION_DATE_IS_REQUIRED": "Дата следующего уведомления обязательна для заполнения.",
+    "RESULTS_TITLE": "Данные пользователя:",
+    "NAME_LABEL": "Имя:",
+    "PASSWORD_LABEL": "Пароль:",
+    "BIRTHDAY_LABEL": "Дата рождения:",
+    "FIRST_LOGIN_DATE_LABEL": "Дата последнего входа:",
+    "NEXT_NOTIFICATION_DATE_LABEL": "Дата следующего уведомления:"
+  }
+}

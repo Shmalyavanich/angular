@@ -1,29 +1,36 @@
-<div class="container">
-  <form #loginForm="ngForm" [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+<div class="login">
+  <div class="container">
+    <form #loginForm="ngForm" [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
 
-    <h1 class="form__title">
-      Sign in
-    </h1>
+      <h1 class="form__title">
+        {{ 'LOGIN.FORM_TITLE' | translate }}
+      </h1>
 
-    <div class="form__group">
-      <input class="form__control" formControlName="name" type="text" value="" placeholder="Name">
-    </div>
+      <div class="form__group">
+        <input class="form__control" formControlName="name" type="text" value=""
+               placeholder="{{ 'LOGIN.FORM_INPUT_NAME' | translate }}">
+      </div>
 
-    <div class="form__group">
-      <input class="form__control" formControlName="password" type="text" value="" placeholder="Password">
-    </div>
+      <div class="form__group">
+        <input class="form__control" formControlName="password" type="password" value=""
+               placeholder="{{ 'LOGIN.FORM_INPUT_PASSWORD' | translate }}">
+      </div>
 
-    <div class="form__group form__group_center">
-      <input class="form__control form__control_submit" name="submit" type="submit" value="Sign In" [disabled]="!form.valid">
-    </div>
+      <div class="form__group form__group_center form__buttons">
+        <input class="form__control form__control_submit" name="submit" type="submit"
+               value="{{ 'LOGIN.FORM_INPUT_BTN' | translate }}" [disabled]="!form.valid">
+        <div *ngIf="!loaded" class="app-loading"></div>
+      </div>
 
-    <div *ngIf="!(userAuth$ | async) && loginForm.submitted" class="form__group form__erorrs">
-        Wrong login or password.
-    </div>
+      <div *ngIf="(userAuth$ | async) === false && loginForm.submitted" class="form__group form__erorrs">
+        {{ 'LOGIN.FORM_ERROR_WRONG_NAME_OR_PASSWORD' | translate }}
+      </div>
 
-    <div class="form__group">
-      <a routerLink="/forgot-password">Forgot password?</a>
-    </div>
+      <div class="form__group">
+        <a routerLink="/forgot-password" class="form__link">{{ 'LOGIN.FORM_LINK_FORGOT_PASSWORD' | translate }}</a>
+      </div>
 
-  </form>
+    </form>
+  </div>
+
 </div>

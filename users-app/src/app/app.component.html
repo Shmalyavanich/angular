@@ -9,19 +9,21 @@
       <div class="header__toolbar">
 
         <div class="header__languages">
-
-          <div class="header__lang header__lang_en">
-            <div class="header__lang-text">EN</div>
-          </div>
-
-          <div class="header__lang header__lang_ru">
-            <div class="header__lang-text">RU</div>
+          <div *ngFor="let lang of translate.getLangs()"
+               (click)="translate.use(lang)"
+               class="header__lang header__lang_{{lang}}"
+               [ngClass]="{active: lang === translate.currentLang}">
+            <div class="header__lang-text">{{lang}}</div>
           </div>
 
         </div>
 
         <div class="header__auth">
-            <a class="header__signin button" routerLink="/login">Sign In</a>
+          <a *ngIf="!authorized; else logout" class="header__signin button" routerLink="/login">{{ 'HEADER.SIGN_IN_BTN' | translate }}</a>
+
+          <ng-template #logout>
+            <a (click)="userLogout()" class="header__logout button">{{ 'HEADER.LOGOUT_BTN' | translate }}</a>
+          </ng-template>
         </div>
 
       </div>
@@ -32,5 +34,4 @@
 
 <router-outlet></router-outlet>
 
-<div *ngIf="!(loaded$ | async)" class="app-loading"></div>
-
+<div *ngIf="!(loaded$ | async) && !authorized" class="app-loading"></div>

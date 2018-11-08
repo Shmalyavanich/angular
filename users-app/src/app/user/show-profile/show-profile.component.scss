@@ -1,5 +1,9 @@
 .main{
-  padding: 50px 0;
+  margin-top: 10px;
+  padding: 40px 0;
+  position: relative;
+  min-height: 380px;
+  box-sizing: border-box;
 }
 .tabs__switcher{
   display: flex;
@@ -28,4 +32,22 @@
 .tabs__body{
   padding: 30px;
   border: 1px solid #cccccc;
+}
+.tabs__content-title{
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 10px;
+}
+.tabs__content-row{
+  padding: 8px 10px;
+  display: flex;
+  justify-content: start;
+
+  &:nth-child(odd){
+    background: #eeeeee;
+  }
+}
+.tabs__content-label,
+.tabs__content-value{
+  width: 50%;
 }

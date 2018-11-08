@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
-import { User } from '../../user';
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { Observable} from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { UsersService } from '../../services/users.service';
@@ -13,10 +12,8 @@ import { UsersService } from '../../services/users.service';
 })
 export class LoginComponent implements OnInit {
 
+  loaded = true;
   form: FormGroup;
-  users: User[] = [];
-  users$: Observable<User[]>;
-  user$: Observable<User>;
   userAuth$: Observable<boolean>;
 
 
@@ -36,8 +33,10 @@ export class LoginComponent implements OnInit {
   }
 
   authorization({name, password}){
-    this.userAuth$ = this.usersService.userAuth(name, password);
-
+    this.loaded = false;
+    this.userAuth$ = this.usersService.userAuth(name, password).pipe(
+      tap(()=> this.loaded = true)
+    );
   }
 
   constructor(

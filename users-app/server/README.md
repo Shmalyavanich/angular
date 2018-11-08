@@ -1,1 +1,0 @@
-Angular homework repository
