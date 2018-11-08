@@ -25,5 +25,14 @@
     "date_of_first_login": "2018-09-10T00:00:00.000Z",
     "date_of_next_notification": "2018-09-23T00:00:00.000Z",
     "information": "info about user 3"
+  },
+  {
+    "id" : "4",
+    "name": "admin",
+    "password": "neadmin",
+    "date_of_birth": "1992-11-22T00:00:00.000Z",
+    "date_of_first_login": "2018-09-10T00:00:00.000Z",
+    "date_of_next_notification": "2018-09-23T00:00:00.000Z",
+    "information": "info about admin"
   }
 ]

@@ -3,7 +3,7 @@
     <div class="header__holder">
 
       <div class="header__logo">
-        <a href="/">USERS-APP</a>
+        <a routerLink="/">USERS-APP</a>
       </div>
 
       <div class="header__toolbar">
@@ -21,11 +21,7 @@
         </div>
 
         <div class="header__auth">
-
-          <div class="header__auth">
-            <a class="header__signin button" href="/login">Sign In</a>
-          </div>
-
+            <a class="header__signin button" routerLink="/login">Sign In</a>
         </div>
 
       </div>
@@ -35,3 +31,6 @@
 </div>
 
 <router-outlet></router-outlet>
+
+<div *ngIf="!(loaded$ | async)" class="app-loading"></div>
+
