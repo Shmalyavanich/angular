@@ -8,6 +8,7 @@ import { AuthorizationGuard } from './authorization/authorization.guard';
 import { AuthorizedUserGuard } from './authorization/authorized-user.guard';
 import { ShowProfileComponent } from "./user/show-profile/show-profile.component";
 import { EditProfileComponent } from "./user/edit-profile/edit-profile.component";
+import { UserListComponent } from "./user-list/user-list.component";
 
 
 const routes: Routes = [
@@ -40,6 +41,10 @@ const routes: Routes = [
     path: 'edit-profile',
     component: EditProfileComponent,
     canActivate:[AuthorizationGuard]
+  },
+  {
+    path: 'user-list',
+    loadChildren: './user-list/user-list.module#UserListModule'
   }
 ];
 

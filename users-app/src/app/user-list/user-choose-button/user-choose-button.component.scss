@@ -1,0 +1,21 @@
+.users__select-button{
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  max-width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  &::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 20px solid black;
+  }
+}

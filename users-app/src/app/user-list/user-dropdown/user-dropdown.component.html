@@ -1,0 +1,7 @@
+<div class="users__dropdown-list">
+
+  <div *ngFor="let user of userList$ | async" (click)="chooseUserEmit(user)" class="users__dropdown-item">
+    <app-user-dropdown-item [user]="user"></app-user-dropdown-item>
+  </div>
+
+</div>
