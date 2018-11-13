@@ -3,9 +3,10 @@
     <div class="users">
       <div class="users__select-box">
         <div class="users__select-content">
-          <app-user-chosen [chosenUser]="chosenUser"></app-user-chosen>
 
-          <app-user-choose-list *ngIf="showDropdown" (chooseUser)="chooseUser($event)"></app-user-choose-list>
+          <app-user-chosen [chosenUser]="chosenUser"></app-user-chosen>
+          <app-user-dropdown *ngIf="showDropdown" (chooseUser)="chooseUser($event)"></app-user-dropdown>
+
         </div>
 
         <app-user-choose-button (dropdownToggle)="toggleDropdown($event)"></app-user-choose-button>
@@ -14,41 +15,36 @@
 
       <div class="users__search">
         <div class="users__search-box">
-          <input class="users__search-control" type="text" placeholder="Search user..."/>
-          <div class="users__search-button"></div>
-        </div>
 
-        <div class="users__list">
-
-          <div class="users__list-item">
-            <div>Name: user1</div>
-            <div>Birthday: 1992/11/22</div>
-            <div>Date of first login: 2018/09/10</div>
-            <div>Date of next notification: 2018/09/23</div>
-            <div>Information: info about user1</div>
-          </div>
-
-          <div class="users__list-item">
-            <div>Name: admin</div>
-            <div>Birthday: 1992/11/22</div>
-            <div>Date of first login: 2018/09/10</div>
-            <div>Date of next notification: 2018/09/23</div>
-            <div>Information: info about admin</div>
-          </div>
-
-          <div class="users__list-item">
-            <div>Name: admin</div>
-            <div>Birthday: 1992/11/22</div>
-            <div>Date of first login: 2018/09/10</div>
-            <div>Date of next notification: 2018/09/23</div>
-            <div>Information: info about admin</div>
-          </div>
+          <input #searchInput class="users__search-control" type="text" placeholder="Search by name"/>
+          <div class="users__search-button" (click)="search(searchInput.value)"></div>
 
         </div>
+        <!--<app-user-search class="users__search-box"></app-user-search>-->
+
+        <div class="users__search-results">
+
+          <div *ngIf="isFinded; else userNotFound">
+            <div *ngFor="let user of findedUsers" (click)="syncFindedUser(user)" class="users__search-result">
+              <div>Name: {{user.name}}</div>
+              <div>Age: {{user.age}}</div>
+              <div>Birthday: {{user.date_of_birth}}</div>
+              <div>Information: {{user.information}}</div>
+            </div>
+          </div>
+
+          <ng-template #userNotFound>
+            <div *ngIf="isSearched" class="users__search-result">
+              User not found
+            </div>
+          </ng-template>
+
+        </div>
+
       </div>
     </div>
   </div>
-  <!--<div *ngIf="!loaded" class="app-loading"></div>-->
+
 </div>
 
 

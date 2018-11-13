@@ -14,6 +14,7 @@ export class UserListService {
 
   readonly serverPath = 'http://localhost:3000';
   readonly dateFormat = 'YYYY/MM/DD';
+  readonly searchType = 'browser';
 
   getUsers (): Observable<User[]> {
     return this.http.get<User[]>(`${this.serverPath}/users`)
@@ -27,6 +28,18 @@ export class UserListService {
         })
       );
   }
+
+  findUsers(users: User[] = null, searchString: string){
+    switch (this.searchType){
+      case 'browser':
+        return users.filter((fields) => fields.name.indexOf(searchString) > -1);
+
+      default:
+        return users.filter((fields) => fields.name.indexOf(searchString) > -1);
+    }
+
+  }
+
 
   dateFromIsoToFormat (date: string, dateFormat: string) {
     return moment(date, moment.ISO_8601).format(dateFormat);

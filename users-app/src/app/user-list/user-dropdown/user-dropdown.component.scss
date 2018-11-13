@@ -14,10 +14,8 @@
   transition: background-color 0.3s ease;
   cursor: pointer;
 
-  &.active{
+  &:hover{
     background: #f0f0f0;
   }
-  &:hover{
-    background: #e0e0e0;
-  }
 }
+

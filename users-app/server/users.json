@@ -3,36 +3,44 @@
     "id" : "1",
     "name": "user1",
     "password": "pass1",
+    "age": "22",
     "date_of_birth": "1990-01-01T00:00:00.000Z",
     "date_of_first_login": "2018-09-15T00:00:00.000Z",
     "date_of_next_notification": "2018-09-21T00:00:00.000Z",
-    "information": "info about user 1"
+    "short_information": "short info about user 1",
+    "information": "full info about user 1"
   },
   {
     "id" : "2",
     "name": "user2",
     "password": "pass2",
+    "age": "23",
     "date_of_birth": "1991-02-05T00:00:00.000Z",
     "date_of_first_login": "2018-09-17T00:00:00.000Z",
     "date_of_next_notification": "2018-09-21T00:00:00.000Z",
-    "information": "info about user 2"
+    "short_information": "short info about user 2",
+    "information": "full info about user 2"
   },
   {
     "id" : "3",
     "name": "user3",
     "password": "pass3",
+    "age": "19",
     "date_of_birth": "1992-11-22T00:00:00.000Z",
     "date_of_first_login": "2018-09-10T00:00:00.000Z",
     "date_of_next_notification": "2018-09-23T00:00:00.000Z",
-    "information": "info about user 3"
+    "short_information": "short info about user 3",
+    "information": "full info about user 3"
   },
   {
     "id" : "4",
     "name": "admin",
     "password": "neadmin",
+    "age": "35",
     "date_of_birth": "1992-11-22T00:00:00.000Z",
     "date_of_first_login": "2018-09-10T00:00:00.000Z",
     "date_of_next_notification": "2018-09-23T00:00:00.000Z",
-    "information": "info about admin"
+    "short_information": "short info about admin",
+    "information": "full info about admin"
   }
 ]
