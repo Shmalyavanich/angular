@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from "rxjs/internal/Observable";
+
+import { UserListService } from "./user-list.service";
+import { User } from "../user";
 
 @Component({
   selector: 'app-user-list',
@@ -7,10 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  constructor() { }
+  showDropdown = false;
+  chosenUser: User;
 
   ngOnInit() {
-    console.log('user-list');
+
   }
+
+  toggleDropdown(visible: boolean){
+    this.showDropdown = visible;
+  }
+
+  chooseUser(user: User){
+    this.chosenUser = user;
+  }
+
+  constructor() { }
 
 }
