@@ -101,6 +101,10 @@ app.get('/auth', (req: any, res: any) => {
     delayTime);
 });
 
+app.get('/search', (req: any, res: any) => {
+  res.json(findUser(req.query.name));
+});
+
 
 app.listen(port,() => {
   console.log(`server is listening on ${port}`);
@@ -120,4 +124,8 @@ const userAuth = (name: string, password: string) => {
 
 const getUserIndexByName = (name: string) => {
   return users.findIndex((fields:any) => fields.name === name);
+};
+
+const findUser = (name: string) => {
+  return users.filter((fields) => fields.name.indexOf(name) > -1);
 };

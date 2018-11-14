@@ -1,0 +1,26 @@
+.users__search-results{
+  height: 450px;
+  overflow-y: auto;
+}
+.users__search-result{
+  padding: 15px;
+  transition: background-color 0.3s ease;
+
+  &:not(.users__search-result_not-found){
+    cursor: pointer;
+  }
+  &:nth-child(even){
+    background-color: #f0f0f0;
+  }
+  &:not(.users__search-result_not-found):hover{
+    background-color: #e0e0e0;
+  }
+}
+.users__search-results-row{
+  font-size: 14px;
+  line-height: 20px;
+}
+.users__search-results-label{
+  font-weight: bold;
+  color: #4C89F2;
+}

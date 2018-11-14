@@ -1,3 +1,37 @@
-<p>
-  user-search-results works!
-</p>
+<div class="users__search-results">
+
+  <div *ngIf="isFound; else userNotFound">
+    <div *ngFor="let user of foundUsers" (click)="onClickUser(user)" class="users__search-result">
+      <div class="users__search-results-row">
+        <span class="users__search-results-label">Name:</span> {{user.name}}
+      </div>
+
+      <div class="users__search-results-row">
+        <span class="users__search-results-label">Age:</span> {{user.age}}
+      </div>
+
+      <div class="users__search-results-row">
+        <span class="users__search-results-label">Birthday:</span> {{user.date_of_birth}}
+      </div>
+
+      <div class="users__search-results-row">
+        <span class="users__search-results-label">Date of login:</span> {{user.date_of_first_login}}
+      </div>
+
+      <div class="users__search-results-row">
+        <span class="users__search-results-label">Date of next notification:</span> {{user.date_of_next_notification}}
+      </div>
+
+      <div class="users__search-results-row">
+        <span class="users__search-results-label">Information:</span> {{user.information}}
+      </div>
+    </div>
+  </div>
+
+  <ng-template #userNotFound>
+    <div *ngIf="isSearched" class="users__search-result users__search-result_not-found">
+      User not found
+    </div>
+  </ng-template>
+
+</div>

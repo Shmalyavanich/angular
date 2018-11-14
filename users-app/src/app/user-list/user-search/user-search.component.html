@@ -1,2 +1,2 @@
-<app-user-search-input class="users__search-control-wrap"></app-user-search-input>
-<app-user-search-button></app-user-search-button>
+<app-user-search-input (searchValue)="changeSearchValue($event)" class="users__search-control-wrap"></app-user-search-input>
+<app-user-search-button (searchButtonClick)="search()"></app-user-search-button>
