@@ -1,19 +1,37 @@
 <div class="users__chosen">
   <div *ngIf="chosenUser; else emptyChosenUser">
     <div class="users__short-info-row">
-      Name: {{chosenUser.name}}
+      <span class="users__short-info-label">Name:</span> {{chosenUser.name}}
     </div>
-    <div class="users__short-info-row">Age: {{chosenUser.age}}</div>
-    <div class="users__short-info-row">Birthday: {{chosenUser.date_of_birth}}</div>
-    <div class="users__short-info-row">Information: {{chosenUser.short_information}}</div>
+
+    <div class="users__short-info-row">
+      <span class="users__short-info-label">Age:</span> {{chosenUser.age}}
+    </div>
+
+    <div class="users__short-info-row">
+      <span class="users__short-info-label">Birthday:</span> {{chosenUser.date_of_birth}}
+    </div>
+
+    <div class="users__short-info-row">
+      <span class="users__short-info-label">Information:</span> {{chosenUser.short_information}}
+    </div>
   </div>
 
   <ng-template #emptyChosenUser>
     <div class="users__short-info-row">
-      Name:
+      <span class="users__short-info-label">Name:</span>
     </div>
-    <div class="users__short-info-row">Age:</div>
-    <div class="users__short-info-row">Birthday:</div>
-    <div class="users__short-info-row">Information:</div>
+
+    <div class="users__short-info-row">
+      <span class="users__short-info-label">Age:</span>
+    </div>
+
+    <div class="users__short-info-row">
+      <span class="users__short-info-label">Birthday:</span>
+    </div>
+
+    <div class="users__short-info-row">
+      <span class="users__short-info-label">Information:</span>
+    </div>
   </ng-template>
 </div>

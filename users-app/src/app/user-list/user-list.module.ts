@@ -4,7 +4,6 @@ import { UserListComponent } from './user-list.component';
 import { UserListRoutingModule } from "./user-list-routing.module";
 import { UserChooseButtonComponent } from './user-choose-button/user-choose-button.component';
 import { UserChosenComponent } from './user-chosen/user-chosen.component';
-import { UserChooseListComponent } from './user-choose-list/user-choose-list.component';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { UserSearchResultsComponent } from './user-search-results/user-search-results.component';
 import { UserSearchInputComponent } from './user-search/user-search-input/user-search-input.component';
@@ -21,7 +20,6 @@ import {UserDropdownItemComponent} from "./user-dropdown/user-dropdown-item/user
     UserListComponent,
     UserChooseButtonComponent,
     UserChosenComponent,
-    UserChooseListComponent,
     UserSearchComponent,
     UserSearchResultsComponent,
     UserSearchInputComponent,

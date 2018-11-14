@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from "rxjs/internal/Observable";
 
 import { UserListService } from "./user-list.service";
 import { User } from "../user";
-import { tap, finalize } from "rxjs/operators";
+
 
 @Component({
   selector: 'app-user-list',
@@ -14,36 +13,33 @@ export class UserListComponent implements OnInit {
 
   showDropdown = false;
   chosenUser: User;
-  findedUsers: User[];
+  foundUsers: User[];
   isSearched = false;
-  isFinded = false;
+  isFound = false;
 
 
-  ngOnInit() {
+  ngOnInit() {}
 
+  toggleDropdown(){
+    this.showDropdown = !this.showDropdown;
   }
 
-  toggleDropdown(visible: boolean){
-    this.showDropdown = visible;
+  hideDropdown(){
+    this.showDropdown = false;
   }
 
-  chooseUser(user: User){
+  chooseUser(user: User) {
     this.chosenUser = user;
+    this.hideDropdown();
   }
 
-  search(searchString){
-
-    this.userListService.getUsers().subscribe(
-      users => {
-        this.findedUsers = this.userListService.findUsers(users, searchString);
-        this.isFinded = this.findedUsers.length > 0;
-        this.isSearched = true;
-      }
-    );
-
+  setSearchResult(users: User[]){
+    this.foundUsers = users;
+    this.isFound = users.length > 0;
+    this.isSearched = true;
   }
 
-  syncFindedUser(user) {
+  syncFoundUser(user) {
     this.chooseUser(user);
   }
 

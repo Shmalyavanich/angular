@@ -1,1 +1,2 @@
-<input #searchInput class="users__search-control" type="text" placeholder="Search by name"/>
+<input #searchInput (change)="onChange(searchInput.value)" class="users__search-control"
+       type="text" placeholder="Search by name"/>

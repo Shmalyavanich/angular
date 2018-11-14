@@ -3,44 +3,19 @@
     <div class="users">
       <div class="users__select-box">
         <div class="users__select-content">
-
           <app-user-chosen [chosenUser]="chosenUser"></app-user-chosen>
           <app-user-dropdown *ngIf="showDropdown" (chooseUser)="chooseUser($event)"></app-user-dropdown>
-
         </div>
-
-        <app-user-choose-button (dropdownToggle)="toggleDropdown($event)"></app-user-choose-button>
+        <app-user-choose-button (dropdownToggle)="toggleDropdown()"></app-user-choose-button>
 
       </div>
 
       <div class="users__search">
-        <div class="users__search-box">
-
-          <input #searchInput class="users__search-control" type="text" placeholder="Search by name"/>
-          <div class="users__search-button" (click)="search(searchInput.value)"></div>
-
-        </div>
-        <!--<app-user-search class="users__search-box"></app-user-search>-->
-
-        <div class="users__search-results">
-
-          <div *ngIf="isFinded; else userNotFound">
-            <div *ngFor="let user of findedUsers" (click)="syncFindedUser(user)" class="users__search-result">
-              <div>Name: {{user.name}}</div>
-              <div>Age: {{user.age}}</div>
-              <div>Birthday: {{user.date_of_birth}}</div>
-              <div>Information: {{user.information}}</div>
-            </div>
-          </div>
-
-          <ng-template #userNotFound>
-            <div *ngIf="isSearched" class="users__search-result">
-              User not found
-            </div>
-          </ng-template>
-
-        </div>
-
+        <app-user-search (searchResult)="setSearchResult($event)" class="users__search-box"></app-user-search>
+        <app-user-search-results [foundUsers]="foundUsers"
+                                 [isSearched]="isSearched"
+                                 [isFound]="isFound"
+                                 (userClick)="syncFoundUser($event)"></app-user-search-results>
       </div>
     </div>
   </div>

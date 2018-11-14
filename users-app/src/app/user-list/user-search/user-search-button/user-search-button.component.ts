@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UserListService} from "../../user-list.service";
 import {User} from "../../../user";
 
@@ -9,23 +9,15 @@ import {User} from "../../../user";
 })
 export class UserSearchButtonComponent implements OnInit {
 
-  findedUsers: User[];
-  isSearched = false;
-  isFinded = false;
+  @Output() searchButtonClick: EventEmitter<boolean> = new EventEmitter();
 
-  search(searchString){
 
-    this.userListService.getUsers().subscribe(
-      users => {
-        this.findedUsers = this.userListService.findUsers(users, searchString);
-        this.isFinded = this.findedUsers.length > 0;
-        this.isSearched = true;
-      }
-    );
-
-  }
   ngOnInit() {
   }
 
-  constructor(private userListService: UserListService) { }
+  onClick(){
+    this.searchButtonClick.emit(true);
+  }
+
+  constructor() { }
 }
